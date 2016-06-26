@@ -4,7 +4,7 @@
   "description": "Vanity is OK if you got icons around your face",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -16,14 +16,14 @@
   ],
   "author": "Embed With Us (https://github.com/EmbedWithUs)",
   "contributors": [
-	{
-		"name": "Mark Shelton",
-		"email": "shelton.mark@gmail.com"
-	},
-	{
-		"name": "Michael Large",
-		"email": "m@codethebeard.com"
-	}
+    {
+      "name": "Mark Shelton",
+      "email": "shelton.mark@gmail.com"
+    },
+    {
+      "name": "Michael Large",
+      "email": "m@codethebeard.com"
+    }
   ],
   "license": "MIT",
   "bugs": {
@@ -31,13 +31,11 @@
   },
   "homepage": "https://github.com/EmbedWithUs/mirror-magic#readme",
   "devDependencies": {
+    "devtron": "^1.2.1",
     "electron-packager": "^7.1.0",
     "electron-prebuilt": "^1.2.5"
   },
   "dependencies": {
     "electron-config": "^0.2.0"
-  },
-  "scripts":{
-	  "start": "electron ."
   }
 }

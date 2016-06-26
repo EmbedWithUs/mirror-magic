@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mirror Mirror</title>
-	<script src="renderer.js" charset="utf-8"></script>
 </head>
 <body>
 	<h1>Mirror Mirror</h1>
@@ -13,5 +12,8 @@
 	<p>We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.</p>
+	<script>
+		require('./renderer.js');
+	</script>
 </body>
 </html>

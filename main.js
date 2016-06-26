@@ -1,11 +1,18 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+
+// Clock Test
+const clock = require('./Modules/clock.js');
+
 let win;
 
 app.on('ready', function(){
 	console.log("READY");
 	createWindow();
+
+	// Clock Test
+	clock.someFunction();
 });
 
 function createWindow(){
