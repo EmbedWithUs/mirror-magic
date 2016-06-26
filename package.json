@@ -1,0 +1,33 @@
+{
+  "name": "mirror-magic",
+  "version": "1.0.0",
+  "description": "Vanity is OK if you got icons around your face",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmbedWithUs/mirror-magic.git"
+  },
+  "keywords": [
+    "magic",
+    "mirror"
+  ],
+  "author": "Mark Shelton & Michael Large",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EmbedWithUs/mirror-magic/issues"
+  },
+  "homepage": "https://github.com/EmbedWithUs/mirror-magic#readme",
+  "devDependencies": {
+    "electron-packager": "^7.1.0",
+    "electron-prebuilt": "^1.2.5"
+  },
+  "dependencies": {
+    "electron-config": "^0.2.0"
+  },
+  "scripts":{
+	  "start": "electron ."
+  }
+}
