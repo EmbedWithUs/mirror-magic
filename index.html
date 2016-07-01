@@ -5,15 +5,42 @@
 	<title>Mirror Mirror</title>
 </head>
 <body>
-	<h1>Mirror Mirror</h1>
-	<blockquote cite="http://www.imdb.com/title/tt0029583/quotes">
-		Slave in the magic mirror, come from the farthest space, through wind and darkness I summon thee. Speak! Let me see thy face.
-	</blockquote>
-	<p>We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.</p>
+	<div id="intro" class="panel panel-intro">
+		<h1>Mirror Mirror</h1>
+		<p>Slave in the magic mirror, come from the farthest space, through wind and darkness I summon thee. Speak! Let me see thy face.</p>
+	</div>
+
+	<div id="mirror" class="panel panel-mirror">
+		<div class="row-1">
+			<div class="col-1"></div>
+			<div class="col-2"></div>
+			<div class="col-3"></div>
+		</div>
+		<div class="row-2">
+			<div class="col-1"></div>
+			<div class="col-2"></div>
+			<div class="col-3"></div>
+		</div>
+		<div class="row-3">
+			<div class="col-1"></div>
+			<div class="col-2"></div>
+			<div class="col-3"></div>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<p>We are using node <script>document.write(process.versions.node)</script>,
+			Chrome <script>document.write(process.versions.chrome)</script>,
+			and Electron <script>document.write(process.versions.electron)</script>.</p>
+	</footer>
 	<script>
 		require('./renderer.js');
+
+		// Create stylesheet.
+		var link = document.createElement('link')
+		link.setAttribute('rel', 'stylesheet')
+		link.setAttribute('href', require('path').join( __dirname, 'css', 'style.css'))
+		document.head.appendChild(link)
 	</script>
 </body>
 </html>
