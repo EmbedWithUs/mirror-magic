@@ -1,6 +1,13 @@
 # mirror-magic
 Vanity is OK if you got icons
 
+## To Get Started
+
+```shell
+# Install the dependencies and run
+$ npm install && npm start
+```
+
 ### TODO:
 
 - [x] Set up local environment
