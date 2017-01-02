@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClockComponent implements OnInit{
 
+    constructor(){}
+
     // Setup time at first.
     time: Object = new Date();
 
@@ -19,6 +21,7 @@ export class ClockComponent implements OnInit{
     // When component loads.
     ngOnInit(): void {
         console.log("Clock Module Initialized");
+
         this.checkTime();
 
         setInterval(() => {

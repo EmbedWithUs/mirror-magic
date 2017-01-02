@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { ClockComponent } from './clock/clock.component';
+import { FeatureTogglesService } from './feature-toggles.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.mirror.html',
-  styleUrls: ['./app.mirror.scss']
+    selector: 'app-root',
+    templateUrl: './app.mirror.html',
+    styleUrls: ['./app.mirror.scss'],
+    providers: [FeatureTogglesService]
 })
 export class AppMirror {
-  title = 'Mirror has loaded!';
+    constructor( private featureToggleService: FeatureTogglesService){}
+    ft = this.featureToggleService;
 }

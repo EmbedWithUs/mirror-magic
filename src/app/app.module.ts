@@ -5,18 +5,20 @@ import { HttpModule } from '@angular/http';
 
 import { AppMirror } from './app.mirror';
 import { ClockComponent } from './clock/clock.component';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
-  declarations: [
-    AppMirror,
-    ClockComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [],
-  bootstrap: [AppMirror]
+    declarations: [
+        AppMirror,
+        ClockComponent,
+        WeatherComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule
+    ],
+    providers: [],
+    bootstrap: [AppMirror]
 })
 export class AppModule { }

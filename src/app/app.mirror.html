@@ -1,1 +1,2 @@
-<app-clock></app-clock>
+<app-clock *ngIf="ft.checkFeatureToggle('clock')"></app-clock>
+<app-weather *ngIf="ft.checkFeatureToggle('wunderground')"></app-weather>
