@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { AppMirror } from './app.mirror';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppMirror,
+    ClockComponent
   ],
   imports: [
     BrowserModule,
@@ -15,6 +17,6 @@ import { AppComponent } from './app.component';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppMirror]
 })
 export class AppModule { }
