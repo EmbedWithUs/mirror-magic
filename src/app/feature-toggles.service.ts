@@ -14,7 +14,7 @@ export class FeatureTogglesService {
         "clock":{
             "ft": true
         }
-    }
+    };
 
     /**
      * Check the feature toggle data.

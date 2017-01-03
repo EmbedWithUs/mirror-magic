@@ -32,7 +32,7 @@ export class WeatherService {
     }
 
     pollCurrentWeather(): Observable<Conditions>{
-        var pollingInMilliseconds = 1000 * 60 * 60 * 1; // Three Hours
+        var pollingInMilliseconds = 1000 * 60 * 60; // 1 Hour
         return Observable.interval(pollingInMilliseconds)
             .switchMap(() => this.http.get('http://api.wunderground.com/api/' + this.key + '/conditions/q/KY/Louisville.json'))
             .map( response => response.json());
@@ -76,7 +76,7 @@ export class WeatherService {
             case "raintstorms-1":
             case "raintstorms-2":
             case "raintstorms":
-                iconClass += "fa-bolt"
+                iconClass += "fa-bolt";
                 break;
             case "chanceflurries":
             case "chancesleet-1":
