@@ -66,10 +66,10 @@ export class WeatherService {
             case "rain":
                 iconClass += "fa-umbrella";
                 break;
-            case "nt_chancestorms-1":
-            case "nt_chancestorms":
-            case "chancestorms-1":
-            case "chancestorms":
+            case "nt_chancetstorms-1":
+            case "nt_chancetstorms":
+            case "chancetstorms-1":
+            case "chancetstorms":
             case "nt_tstorms-1":
             case "nt_tstorms-2":
             case "nt_tstorms":
