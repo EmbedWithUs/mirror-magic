@@ -10,7 +10,7 @@ export class WeatherService {
 
     constructor(private http: Http) {}
 
-    key = "8ef9df6b5e4ad05b";
+    private key = "8ef9df6b5e4ad05b";
 
     getWeatherForecast(): Promise<Forecasts>{
         return this.http.get('http://api.wunderground.com/api/' + this.key + '/forecast/q/KY/Louisville.json')
@@ -32,7 +32,7 @@ export class WeatherService {
     }
 
     pollCurrentWeather(): Observable<Conditions>{
-        var pollingInMilliseconds = 1000 * 60 * 60 * 3; // Three Hours
+        var pollingInMilliseconds = 1000 * 60 * 60 * 1; // Three Hours
         return Observable.interval(pollingInMilliseconds)
             .switchMap(() => this.http.get('http://api.wunderground.com/api/' + this.key + '/conditions/q/KY/Louisville.json'))
             .map( response => response.json());
@@ -40,11 +40,79 @@ export class WeatherService {
 
     getWeatherIcon(data): String{
         var iconString = data.current_observation.icon;
-        var iconUrl;
+        var iconUrl: string;
+        var iconClass: string = "fa ";
 
-        iconUrl = "http://icons.wxug.com/i/c/j/" + iconString + ".gif";
+        iconUrl = "http://icons.wxug.com/i/c/i/" + iconString + ".gif";
 
-        return iconUrl;
+        switch(iconString){
+            case "clear":
+            case "mostlysunny":
+            case "nt_clear":
+            case "nt_mostlysunny":
+            case "nt_partlycloudy-1":
+            case "nt_partlycloudy":
+            case "nt_partlysunny":
+            case "nt_sunny":
+            case "partlycloudy-1":
+            case "partlycloudy":
+            case "partlysunny":
+            case "sunny":
+                iconClass += "icon-sunny";
+                break;
+            case "chancerain":
+            case "nt_chancerain":
+            case "nt_rain":
+            case "rain":
+                iconClass += "fa-umbrella";
+                break;
+            case "nt_chancestorms-1":
+            case "nt_chancestorms":
+            case "chancestorms-1":
+            case "chancestorms":
+            case "nt_tstorms-1":
+            case "nt_tstorms-2":
+            case "nt_tstorms":
+            case "raintstorms-1":
+            case "raintstorms-2":
+            case "raintstorms":
+                iconClass += "fa-bolt"
+                break;
+            case "chanceflurries":
+            case "chancesleet-1":
+            case "chancesleet":
+            case "chancesnow":
+            case "flurries":
+            case "ng_chanceflurries":
+            case "ng_chancesleet-1":
+            case "ng_chancesleet":
+            case "ng_chancesnow":
+            case "ng_flurries":
+            case "ng_sleet":
+            case "ng_sleet-1":
+            case "ng_snow":
+            case "sleet-1":
+            case "sleet":
+            case "snow":
+                iconClass += "fa-snowflake-o";
+                break;
+            case "cloudy-1":
+            case "cloudy":
+            case "fog":
+            case "hazy":
+            case "mostlycloudy":
+            case "nt_cloudy-1":
+            case "nt_cloudy":
+            case "nt_fog":
+            case "nt_hazy":
+            case "nt_mostlycloudy":
+                iconClass += "fa-cloud";
+                break;
+            default:
+                iconClass += "fa-rocket";
+        }
+
+        return iconClass;
     }
 
     getWeatherLocation(data): String{
@@ -54,7 +122,7 @@ export class WeatherService {
     getLongForecast(data){
         var forecastDay = data.forecast.txt_forecast.forecastday;
         var newForecastArray = [];
-        for( var i = 0; i < forecastDay.length - (forecastDay.length - 2); i++){
+        for( var i = 0; i < forecastDay.length - (forecastDay.length - 1); i++){
             newForecastArray.push(forecastDay[i]);
         }
         return newForecastArray;

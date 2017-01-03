@@ -1,10 +1,8 @@
 <div class="widget weather-wrapper">
-    <p class="weather-location">{{ location }}</p>
-    <img class="weather-icon" *ngIf="icon" [src]="icon" alt="">
-
-    <ul class="forecasts">
+    <i *ngIf="icon" [class]="icon"></i>
+    <ul class="forecasts" *ngIf="forecasts">
         <li class="forecast" *ngFor="let forecast of forecasts;">
-            <p class="forecast-title">{{forecast.title}}</p>
+            <p class="forecast-title">{{ location }}</p>
             <p class="forecast-text">{{forecast.fcttext}}</p>
         </li>
     </ul>
