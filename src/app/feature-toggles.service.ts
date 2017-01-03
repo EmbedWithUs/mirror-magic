@@ -9,7 +9,7 @@ export class FeatureTogglesService {
     keys: Object = {
         "wunderground":{
             "apiKey":"0f29b1a14b9dff73",
-            "ft": false
+            "ft": true
         },
         "clock":{
             "ft": true
