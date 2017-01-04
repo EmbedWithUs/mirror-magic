@@ -58,7 +58,7 @@ export class WeatherService {
             case "partlycloudy":
             case "partlysunny":
             case "sunny":
-                iconClass += "icon-sunny";
+                iconClass += "fa-sun-o";
                 break;
             case "chancerain":
             case "nt_chancerain":
@@ -119,7 +119,7 @@ export class WeatherService {
         return data.current_observation.display_location.full;
     }
 
-    getLongForecast(data){
+    getLongForecast(data): Array<Object>{
         var forecastDay = data.forecast.txt_forecast.forecastday;
         var newForecastArray = [];
         for( var i = 0; i < forecastDay.length - (forecastDay.length - 1); i++){
@@ -127,5 +127,14 @@ export class WeatherService {
         }
         return newForecastArray;
     }
+
+	/**
+	 * Get the epoch of last updated time.
+	 * @param  {Object} data Full Conditions data
+	 * @return {String}      Epoch since updated
+	 */
+	getObservationEpoch(data): String{
+		return data.current_observation.observation_epoch;
+	}
 
 }

@@ -11,6 +11,7 @@ export class WeatherComponent implements OnInit {
     private icon;
     private location;
     private forecasts;
+	private updatedEpoch;
 
     constructor(private weatherService: WeatherService) { }
 
@@ -22,8 +23,10 @@ export class WeatherComponent implements OnInit {
         this.weatherService.getCurrentWeather()
             .then(response => {
                 console.log("Getting initial current conditions");
+				console.log(response);
                 this.icon = this.weatherService.getWeatherIcon(response);
                 this.location = this.weatherService.getWeatherLocation(response);
+				this.updatedEpoch = this.weatherService.getObservationEpoch(response);
             });
 
         this.weatherService.getWeatherForecast()

@@ -19,8 +19,14 @@
 
     &-text{
         font-size: 0.8em;
-        max-width: 10vw;
+        max-width: 200px;
         line-height: 1.3;
         color: rgba(255,255,255,0.5);
     }
+}
+
+.updated-last{
+	margin-top: 0.6em;
+	color: rgba(255,255,255,0.3);
+	font-size: 80%;
 }
