@@ -15,6 +15,17 @@ export class WeatherComponent implements OnInit {
 
     constructor(private weatherService: WeatherService) { }
 
+	updateWeather(response): void{
+		this.icon = this.weatherService.getWeatherIcon(response);
+		this.location = this.weatherService.getWeatherLocation(response);
+		this.updatedEpoch = this.weatherService.getObservationEpoch(response);
+	}
+
+	updateForecast(response): void{
+		this.forecasts = this.weatherService.getLongForecast(response);
+	}
+
+
     ngOnInit() {
 
         /**
@@ -23,16 +34,13 @@ export class WeatherComponent implements OnInit {
         this.weatherService.getCurrentWeather()
             .then(response => {
                 console.log("Getting initial current conditions");
-				console.log(response);
-                this.icon = this.weatherService.getWeatherIcon(response);
-                this.location = this.weatherService.getWeatherLocation(response);
-				this.updatedEpoch = this.weatherService.getObservationEpoch(response);
+				this.updateWeather(response);
             });
 
         this.weatherService.getWeatherForecast()
             .then(response => {
                 console.log("Getting initial Forecast");
-                this.forecasts = this.weatherService.getLongForecast(response);
+				this.updateForecast(response);
             });
 
         /**
@@ -40,13 +48,12 @@ export class WeatherComponent implements OnInit {
          */
         this.weatherService.pollCurrentWeather().subscribe(response => {
             console.log("Polling Current Weather Data");
-            this.icon = this.weatherService.getWeatherIcon(response);
-            this.location = this.weatherService.getWeatherLocation(response);
+			this.updateWeather(response);
         });
 
         this.weatherService.pollWeatherForecast().subscribe(response => {
             console.log("Polling Forecast");
-            this.forecasts = this.weatherService.getLongForecast(response);
+			this.updateForecast(response)
         });
 
     }

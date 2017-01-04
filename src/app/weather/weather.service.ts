@@ -25,14 +25,14 @@ export class WeatherService {
     }
 
     pollWeatherForecast(): Observable<Forecasts>{
-        var pollingInMilliseconds = 1000 * 60 * 60 * 4; // Four Hours
+        var pollingInMilliseconds = 1000 * 60 * 20; // Twenty Minutes
         return Observable.interval(pollingInMilliseconds)
             .switchMap(() => this.http.get('http://api.wunderground.com/api/' + this.key + '/forecast/q/KY/Louisville.json'))
             .map( response => response.json());
     }
 
     pollCurrentWeather(): Observable<Conditions>{
-        var pollingInMilliseconds = 1000 * 60 * 60; // 1 Hour
+        var pollingInMilliseconds = 1000 * 60 * 20; // Twenty Minutes
         return Observable.interval(pollingInMilliseconds)
             .switchMap(() => this.http.get('http://api.wunderground.com/api/' + this.key + '/conditions/q/KY/Louisville.json'))
             .map( response => response.json());
