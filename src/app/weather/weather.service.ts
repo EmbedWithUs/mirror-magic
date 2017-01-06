@@ -115,6 +115,10 @@ export class WeatherService {
         return iconClass;
     }
 
+	getCurrentObservation(data): String{
+		return data.current_observation;
+	}
+
     getWeatherLocation(data): String{
         return data.current_observation.display_location.full;
     }
