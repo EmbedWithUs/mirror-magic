@@ -1,0 +1,4 @@
+<div class="mirror-wrapper">
+    <app-clock *ngIf="ft.checkFeatureToggle('clock')"></app-clock>
+    <app-weather *ngIf="ft.checkFeatureToggle('wunderground')" class="location-top-right"></app-weather>
+</div>

@@ -1,0 +1,11 @@
+<div class="widget weather-wrapper">
+	<span class="temp">{{ temp }}&deg;F</span>
+    <i *ngIf="icon" [class]="icon"></i>
+    <ul class="forecasts" *ngIf="forecasts">
+        <li class="forecast" *ngFor="let forecast of forecasts;">
+            <p class="forecast-title">{{ location }}</p>
+            <p class="forecast-text">{{ forecast.fcttext }}</p>
+			<p class="updated-last">updated {{ (updatedEpoch | amFromUnix) | amTimeAgo }}</p>
+        </li>
+    </ul>
+</div>

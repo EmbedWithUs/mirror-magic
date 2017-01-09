@@ -1,0 +1,40 @@
+.weather-wrapper{
+    padding: 0;
+
+    i{
+        font-size: 3em;
+    }
+}
+
+.temp{
+	color: rgba(255,255,255,0.4);
+    font-size: 1.3em;
+    vertical-align: top;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.forecast{
+    display: inline-block;
+    margin-bottom: 1em;
+    margin-top: 1em;
+
+    &-title{
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 0.5em;
+    }
+
+    &-text{
+        font-size: 0.8em;
+        max-width: 200px;
+        line-height: 1.3;
+        color: rgba(255,255,255,0.5);
+    }
+}
+
+.updated-last{
+	margin-top: 0.6em;
+	color: rgba(255,255,255,0.3);
+	font-size: 80%;
+}
